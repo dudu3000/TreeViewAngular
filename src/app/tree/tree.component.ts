@@ -21,7 +21,7 @@ export class TreeComponent implements OnInit {
   }
 
 
-  //Convert JSON to Array
+  //Method called by clicking "update button"
   updateList(){
     this.fetchedData.fetchJSON().then(data=>this.data = data)
     this.setPropertiesToInit();
@@ -32,7 +32,7 @@ export class TreeComponent implements OnInit {
 
 
 
-
+  //Set all properties to default
   setPropertiesToInit(){
     this.dataArray = [];
     this.layerArray = [];
@@ -42,7 +42,7 @@ export class TreeComponent implements OnInit {
 
 
 
-
+  //Convert JSON format to Array.(if fetched data is undefined or anything else than JSON it returns an error)
   getDataArray(data){
     if(data == undefined || typeof(data) !== 'object'){
       this.handleError(0);
@@ -68,6 +68,7 @@ export class TreeComponent implements OnInit {
   }
 
 
+  //Get the layer of each element to know how much left margin to add for each element
   getLayer(){
     for(var getLayerIncrement = 0; getLayerIncrement < this.dataArray.length; getLayerIncrement++){
       this.layerArray[getLayerIncrement] = '';
@@ -78,6 +79,7 @@ export class TreeComponent implements OnInit {
     }
   }
 
+  //Remove the information about layers from each element
   removeLayerNumber(){
     for(var rmLayerNrIncrement = 0; rmLayerNrIncrement < this.dataArray.length; rmLayerNrIncrement++){
       this.dataArray[rmLayerNrIncrement] = this.dataArray[rmLayerNrIncrement].split('_')[0];
@@ -86,12 +88,11 @@ export class TreeComponent implements OnInit {
 
 
 
-  
+
   private handleError(errorId){
     if(errorId == 0){
       console.error('Something is wrong with data in file');
     }
-
   }
   
 
