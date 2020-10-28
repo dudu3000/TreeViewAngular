@@ -44,6 +44,10 @@ export class TreeComponent implements OnInit {
 
 
   getDataArray(data){
+    if(data == undefined || typeof(data) !== 'object'){
+      this.handleError(0);
+      return;
+    }
     for (const item in data) {
       if (data.hasOwnProperty(item)) {
         const element = data[item];
@@ -81,6 +85,14 @@ export class TreeComponent implements OnInit {
   }
 
 
+
+  
+  private handleError(errorId){
+    if(errorId == 0){
+      console.error('Something is wrong with data in file');
+    }
+
+  }
   
 
   ngOnInit() {
