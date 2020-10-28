@@ -1,0 +1,14 @@
+
+<h1 style="margin-left:50px; margin-top: 50px;">
+  
+  <a routerLink="/"><button class="btn btn-primary btn-lg" style="float: right; margin-right: 100px;">Home</button></a>
+  <a routerLink="/contact"><button class="btn btn-primary btn-lg" style="float: right; margin-right: 5px;">Contact</button></a>
+
+  <button #listed class="btn btn-success btn-lg" style="margin-bottom: 20px;" (click)="updateList()">Update</button>
+
+    <div *ngFor="let item of dataArray; let i = index">
+      <h3 style="margin-top: 0px; margin-bottom: 0px">
+        {{ layerArray[i]}} <span style="border-left: 1px solid #000000;"></span> - {{ item }}
+      </h3>
+    </div>
+</h1>
