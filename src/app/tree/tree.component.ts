@@ -1,5 +1,7 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { FetchJSONService } from '../fetchJSON.service';
+import { error } from 'console';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-tree',
@@ -93,6 +95,7 @@ export class TreeComponent implements OnInit {
     if(errorId == 0){
       console.error('Something is wrong with data in file');
     }
+    return throwError(new Error('Something is wrong with files\' data'));
   }
   
 
