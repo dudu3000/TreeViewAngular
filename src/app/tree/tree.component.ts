@@ -1,6 +1,5 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { FetchJSONService } from '../fetchJSON.service';
-import { error } from 'console';
 import { throwError } from 'rxjs';
 
 @Component({

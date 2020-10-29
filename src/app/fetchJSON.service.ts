@@ -10,13 +10,13 @@ import { async } from '@angular/core/testing';
 })
 export class FetchJSONService {
   private data;
-  private configUrl = 'restjson';
+  private configUrl = 'http://localhost:5846/restjson';
   constructor(private http: HttpClient){}
 
   //Used to send GET request
   fetchJSON() : Promise<string>{
     return this.http.get(
-      'http://localhost:5846/' + this.configUrl, {responseType: 'text'}
+      this.configUrl, {responseType: 'text'}
     ).pipe(
       retry(3), 
       catchError(this.handleError)
